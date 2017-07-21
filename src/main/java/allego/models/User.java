@@ -1,17 +1,27 @@
 package allego.models;
 
+import javax.persistence.*;
+
 /**
  * Created by ibm on 2017-07-14.
  */
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue
     private long id;
+    @Column(nullable=false)
     private String name;
+    @Column(nullable=false)
     private String surname;
+    @Column(nullable=false)
     private String email;
+    @Column(nullable=false)
     private String password; //TODO passwordhash
 
-    public User() {}
+    public User() {} //zostawić, wymagany przez specyfikację JPA
 
     public User(long id, String name, String surname, String email, String password) {
         this.id = id;
