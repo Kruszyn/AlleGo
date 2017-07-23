@@ -1,36 +1,40 @@
 package allego.models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * Created by ibm on 2017-07-14.
  */
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
-    @Id
-    @GeneratedValue
+
     private long id;
-    @Column(nullable=false)
+    private String username;
     private String name;
-    @Column(nullable=false)
     private String surname;
-    @Column(nullable=false)
     private String email;
-    @Column(nullable=false)
-    private String password; //TODO passwordhash
+    private String password;
+    private String passwordConfirm;
+    private Set<Role> roles;
+
 
     public User() {} //zostawić, wymagany przez specyfikację JPA
 
-    public User(long id, String name, String surname, String email, String password) {
+    public User(long id, String username, String name, String surname, String email, String password, String passwordConfirm) {
         this.id = id;
+        this.username = username;
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.password = password;
+        this.passwordConfirm = passwordConfirm;
     }
 
+    @Id
+    @GeneratedValue
     public long getId() {
         return id;
     }
@@ -69,5 +73,31 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Transient
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
