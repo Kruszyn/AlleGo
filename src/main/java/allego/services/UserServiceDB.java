@@ -19,4 +19,7 @@ public class UserServiceDB implements UserService {
     public List<User> findAll() {
         return this.userRepo.findAll();
     }
+
+    @Override
+    public void save(User user){ this.userRepo.save(user); }
 }
