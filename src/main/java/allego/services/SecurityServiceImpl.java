@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by Kamil on 23.07.2017.
  */
+/*
 @Service
 public class SecurityServiceImpl implements SecurityService {
     @Autowired
@@ -46,3 +47,4 @@ public class SecurityServiceImpl implements SecurityService {
         }
     }
 }
+*/

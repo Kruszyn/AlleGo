@@ -18,6 +18,7 @@ import java.util.Set;
 /**
  * Created by Kamil on 23.07.2017.
  */
+/*
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
@@ -35,3 +36,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
     }
 }
+*/
