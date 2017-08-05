@@ -7,14 +7,14 @@
 
 <body>
 
-<header th:replace="layout :: site-header" />
+<header th:replace="layout :: navbar" />
 
 <h1>Welcome to AlleGo!</h1>
 Now is: <b th:text="${execInfo.now.time}">date and time</b>
 <h2>All s</h2>
 
 <!--<h1 th:each="u : ${allUsers}" th:text="${u.name}">User1</h1>-->
-dsads
+
 <footer th:replace="layout :: site-footer" />
 
 </body>
