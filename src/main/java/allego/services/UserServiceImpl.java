@@ -18,20 +18,20 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepo;
     @Autowired
     private RoleRepository roleRepo;
-  /*  @Autowired
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-*/
+
     @Override
     public List<User> findAll() {
         return userRepo.findAll();
     }
 
-  /*  @Override
+    @Override
     public void save(User user){
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(new HashSet<>(roleRepo.findAll()));
         userRepo.save(user);
-    }*/
+    }
 
     @Override
     public User findByUsername(String username) {
